@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <h1>Communication between components</h1>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">
+      <ul class="list-group" *ngFor="let user of users">
+        <li class="list-group-item" (click)="onSelectedUser(user)">{{user.name}}</li>
+      </ul>
+    </div>
+    <div class="col-sm-8" style="background-color:lavenderblush;">
+      <app-user-detail (onSaveUserDetail)="onUserDetailSaveClick($event)" [userDetail]='selectedUser'></app-user-detail>
+    </div>
+  </div>
+</div>

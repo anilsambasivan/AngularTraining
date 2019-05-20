@@ -1,0 +1,22 @@
+<div class="container" *ngIf="userDetail">
+  <h2>User Details</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="userDetail.name" name="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" [(ngModel)]="userDetail.email" name="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" [(ngModel)]="userDetail.phone" name="phone" placeholder="Enter phone">
+    </div>
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input type="text" class="form-control" [(ngModel)]="userDetail.company" name="company" placeholder="Enter company">
+    </div>
+    <button type="button" class="btn btn-default" (click)='onSubmitClick()' >Submit</button>
+  </form>
+</div>

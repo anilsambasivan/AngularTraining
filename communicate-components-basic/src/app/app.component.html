@@ -1,0 +1,2 @@
+<h1 *ngIf="user && user.name">Saved details of user: {{user.name}}</h1>
+<app-user-list (onSaveUserDetailEvent)="onUserDetailSaveClick($event)"></app-user-list>
