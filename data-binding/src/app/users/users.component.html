@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Users</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" [(ngModel)]="user.name" name="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" [(ngModel)]="user.phone" name="phone" placeholder="Enter phone">
+    </div>
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input type="text" class="form-control" [(ngModel)]="user.company" name="company" placeholder="Enter company">
+    </div>
+    
+
+    <div class="form-group">
+      <label for="name">Name: {{user.name}}</label>
+    </div>
+    <div class="form-group">
+      <label for="email">Email: {{user.email}}</label>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone: {{user.phone}}</label>
+    </div>
+    <div class="form-group">
+      <label for="company">Company: {{user.company}}</label>
+    </div>
+    <button type="button" class="btn btn-default" (click)='onSubmitClick()' >Submit</button>
+  </form>
+</div>
