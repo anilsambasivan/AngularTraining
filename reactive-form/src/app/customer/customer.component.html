@@ -1,0 +1,27 @@
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input id="firstName" name="firstName" type="text" formControlName="firstName" required>
+    <div *ngIf="getFormControl('firstName').invalid && (getFormControl('firstName').dirty || getFormControl('firstName').touched)" class="alert alert-danger">
+      <div *ngIf="getFormControl('firstName').errors.required">
+        First Name is required.
+      </div>
+      <div *ngIf="getFormControl('firstName').errors.minlength">
+        First Name must be at least 4 characters long.
+      </div>
+    </div>
+  </label>
+  <label>
+    Last Name:
+    <input id="lastName" name="lastName" type="text" formControlName="lastName" required>
+    <div *ngIf="getFormControl('lastName').invalid && (getFormControl('lastName').dirty || getFormControl('lastName').touched)" class="alert alert-danger">
+      <div *ngIf="getFormControl('lastName').errors.required">
+        First Name is required.
+      </div>
+      <div *ngIf="getFormControl('lastName').errors.minlength">
+        First Name must be at least 4 characters long.
+      </div>
+    </div>
+  </label>
+  <button type="submit" [disabled]="!customerForm.valid">Submit</button>
+</form>
