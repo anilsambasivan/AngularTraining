@@ -1,0 +1,48 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "firstName": "Leanne",
+      "lastName": "Graham",
+      "address": {
+        "city": "Gwenborough",
+        "state": "CA",
+        "street": "Victor Plains",
+        "zip": "92998-3874"
+      }
+    },
+    {
+      "id": "2",
+      "firstName": "Ervin",
+      "lastName": "Howell",
+      "address": {
+        "street": "Douglas Extension",
+        "state": "CA",
+        "city": "Wisokyburgh",
+        "zip": "90566-7771"
+      }
+    },
+    {
+      "firstName": "ZCzC",
+      "lastName": "ZCzC",
+      "address": {
+        "street": "ZCC",
+        "city": "ZCzC",
+        "state": "ZCzC",
+        "zip": "zCC"
+      },
+      "id": 3
+    },
+    {
+      "firstName": "Anil",
+      "lastName": "Sambasivan",
+      "address": {
+        "street": "lml",
+        "city": "ihonlk",
+        "state": "nlknl",
+        "zip": "8768"
+      },
+      "id": 4
+    }
+  ]
+}

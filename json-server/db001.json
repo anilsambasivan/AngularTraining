@@ -1,0 +1,25 @@
+{"customers" : [
+  {
+    "id": "1",
+    "firstName": "Leanne",
+    "lastName": "Graham",
+    "address": {
+      "city": "Gwenborough",
+      "state": "CA",
+      "street": "Victor Plains",
+      "zip": "92998-3874",
+    }
+  },
+  {
+    "id": "1",
+    "firstName": "Ervin",
+    "lastName": "Howell",
+    "address": {
+      "street": "Douglas Extension",
+      "state": "CA",
+      "city": "Wisokyburgh",
+      "zip": "90566-7771",
+    }
+  }
+]
+}
