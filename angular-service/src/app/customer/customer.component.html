@@ -1,7 +1,7 @@
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
   <label>
     First Name:
-    <input id="firstName" name="firstName" type="text" formControlName="firstName" required>
+    <input id="firstName" name="firstName" type="text" formControlName="firstName" required >
     <div *ngIf="getFormControl('firstName').invalid && (getFormControl('firstName').dirty || getFormControl('firstName').touched)" class="alert alert-danger">
       <div *ngIf="getFormControl('firstName').errors.required">
         First Name is required.

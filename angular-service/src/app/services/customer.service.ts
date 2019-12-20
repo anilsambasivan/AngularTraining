@@ -23,9 +23,14 @@ export class CustomerService {
             catchError(this.handleError<Customer[]>('getCustomers')));
     }
 
+    getCustomer(id: number): Observable<Customer> {
+        return this.http.get<Customer>(this.customersUrl + '/' + id, httpOptions).pipe(
+            catchError(this.handleError<Customer>('getCustomer')));
+    }
+
     saveCustomer(data: Customer): Observable<Customer> {
         return this.http.post<Customer>(this.customersUrl, data, httpOptions).pipe(
-            catchError(this.handleError<Customer>('addCustomer')));
+            catchError(this.handleError<Customer>('saveCustomer')));
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

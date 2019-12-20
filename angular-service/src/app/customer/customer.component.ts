@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService } from '../services/customer.service';
+import { Customer } from '../model/customer.model';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { IAppState } from '../store/state/app.state';
+import { SaveCustomer, GetCustomer } from '../store/actions/customer.actions';
+import { selectedCustomer } from '../store/selectors/customer.selector';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
   public customerForm = new FormGroup({
@@ -19,22 +25,34 @@ export class CustomerComponent implements OnInit {
     })
   });
 
-  private latestId = 0;
-  constructor(private service: CustomerService) {
-  }
+  private customerId = 0;
+
+  customer$ = this.store.pipe(select(selectedCustomer)); 
+public customerDetails: Customer;
+constructor(private store: Store<IAppState>,
+  private route: ActivatedRoute,
+  private router: Router,) { 
+}
 
   ngOnInit() {
-    this.service.getCustomers().subscribe((customers) => {
-      console.log(JSON.stringify(customers));
-      this.latestId = customers.length + 1;
+    this.route.params.subscribe(params => {
+      this.store.dispatch(new GetCustomer(+params.id));
+    });
+    
+    this.customer$.subscribe((data) => {
+      if(data) {
+        this.customerId = data.id;
+        this.customerForm.patchValue(data)
+      }
     });
   }
 
   public onSubmit(): void {
-    this.customerForm.value.id = this.latestId;
-    this.service.saveCustomer(this.customerForm.value).subscribe();
+    this.customerForm.value.id = this.customerId;
+
+    const customer = new Customer(); 
+    this.store.dispatch(new SaveCustomer(this.customerForm.value)); 
     console.log(this.customerForm.value);
-    this.latestId = this.latestId + 1;
   }
 
   public getFormControl(name: string) {
